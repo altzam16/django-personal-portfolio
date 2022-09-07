@@ -1,0 +1,29 @@
+{%  extends 'personal_port/base.html' %}
+
+{% block content %}
+
+<h1>BHI Jobs</h1>
+
+    <h1 id="blogtitle" class="font-weight-bold text-center">Blog</h1>
+
+<h3 class="text-center mb-5"> BHI has done {{ pc.count }} job{{ pc.count|pluralize }}</h3>
+
+
+{% for jobs in posts %}
+    <div class="row justify-content-center my-3">
+     <div class="col-md-10">
+        <a href="{%  url 'blog:detail' jobs.id %}"
+            <h2>{{ jobs.job_title }}</h2>
+        </a>
+  <h5  class="text-muted">{{ jobs.ex_date|date:'M d y' }}</h5>
+  <h4>{{ jobs.job_data|striptags|truncatechars:100 }}</h4>
+
+    {%  if jobs.scope %}
+
+    <a href="{{ jobs.scope.url }}">Scope of Work</a>
+    {%  endif %}
+     </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

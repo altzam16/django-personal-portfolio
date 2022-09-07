@@ -1,0 +1,11 @@
+{%  extends 'personal_port/base.html' %}
+
+{% block content %}
+
+    <h1 class="text-center mt-5" id="blogdetailtitle">{{ post.job_title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ post.ex_date|date:'F jS Y' }}</h5>
+
+{{ post.job_data|safe }}
+
+{% endblock %}
